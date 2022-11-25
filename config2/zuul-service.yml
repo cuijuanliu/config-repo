@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: zuul
+
+  main:
+    allow-circular-references: true
+  cloud:
+    gateway:
+      routes:
+      - id: item-service
+        uri: lb://item-service
+        predicates:
+        - Path=/item-service/**
+      enabled: true
+server:
+  port: 3001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka,http://eureka2:2002/eureka
+
+#zuul:
+  #routes:
+   # item-service: 
+    #  path:  /item-service/**
+    #user-service: 
+    #  path: /user-service/**
+    #order-service: 
+    #  path: /order-service/**
+
+    
