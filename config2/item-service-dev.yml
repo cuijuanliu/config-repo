@@ -7,8 +7,8 @@ spring:
  # port: 8001
   config:
     activate:
-      on-profile:
-      - item1
+      on-profile: item1
+
       
       
 #eureka
